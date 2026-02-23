@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Tailwind css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Daisy ui  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- font osam cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+</head>
+<!-- main code stsart korlam -->
+
+<body class="bg-[#F8FAFC] pb-[40px] vh-[#F8FAFC] ">
+
+    <header class=" mx-auto py-7 container px-4 lg:px-0 ">
+        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-[#002C5C] py-2">Job Application Tracker</h1>
+        <div class="grid grid-cols-3 gap-8 mt-[20px]">
+            <div class="bg-[#FFFFFF] border border-cyan-200  p-4 rounded-[8px] shadow-lg ">
+                <p>Total</p>
+                <p id="total" class=" text-[20px] text-[002C5C] font-bold">0</p>
+            </div>
+
+            <div class="bg-[#FFFFFF] border border-cyan-200  p-4 rounded-[8px] shadow-lg">
+                <p>Interview</p>
+                <p id="interview" class=" text-[20px] text-green-700  font-bold">0</p>
+            </div>
+
+            <div class="bg-[#FFFFFF] border border-cyan-200  p-4 rounded-[8px] shadow-lg">
+                <p>Rejected</p>
+                <p id="rejected" class=" text-[20px] font-bold text-red-700  ">0</p>
+            </div>
+        </div>
+    </header>
+    <!-- ///............ -->
+    <hr class="container mx-auto text-slate-200  my-5  px-4 lg:px-0 ">
+    <!-- ............ -->
+
+    <main class=" container mx-auto px-4 lg:px-0">
+
+        <section>
+            <!-- Acount 1 of 8 jobs kaj kore java script a -->
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class=" text-[20px] py-2 font-semibold text-[#002C5C]  ">Available Jobs</h3>
+                </div>
+                <div class="flex gap-2">
+                    <p id="Available-Jobs">0</p>
+                    <p class="text-[#64748B]"></p>
+                </div>
+            </div>
+
+            <!--Aall button section akhon kaj korbe  -->
+
+            <div class="mb-6 space-x-2 ">
+                <button onclick="toggleStyle('all-filter-btn')"
+                    class="text-white bg-[#3B82F6] btn border-indigo-500  px-8 py-2 rounded-sm border  "
+                    id="all-filter-btn">All</button>
+                <button onclick="toggleStyle('Interview-filter-btn')"
+                    class="bg-[#FFFFFF] px-5 py-2 rounded-sm border btn border-indigo-500"
+                    id="Interview-filter-btn">Interview</button>
+                <button onclick="toggleStyle('Rejected-filter-btn')"
+                    class="bg-[#FFFFFF] px-5 py-2 rounded-sm border btn border-indigo-500"
+                    id="Rejected-filter-btn">Rejected</button>
+            </div>
+        </section>
+
+
+
+        <!-- all card section  -->
+
+        <section id="all-card" class="space-y-6 mb-[100px]">
+
+            <!-- Card 1.................... -->
+            <div
+                class="job-card flex justify-between border border-l-cyan-300 border-l-3 border-gray-300 rounded-sm shadow-lg bg-[#FFFFFF] md:gap-9">
+                <div class="p-5">
+                    <h2 class="Mobile-First-Corp text-[#002C5C] text-[20px] font-semibold">Mobile First Corp</h2>
+                    <p class="React-Native-Developer text-[#64748B]">React Native Developer</p>
+                    <p class="salary-button py-4 text-[#64748B]">Remote . Full-time . $130,000 - $175,000</p>
+                    <button class="Not-Applied btn btn-active">Not Applied</button>
+                    <p class="parent-lorem py-3">
+                        Build cross-platform mobile applications using React Native.
+                    </p>
+                    <div class="flex gap-5">
+                        <button class="interview-btn btn btn-outline btn-success">interview</button>
+                        <button class="rejected-btn btn btn-outline btn-error">Rejected</button>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        class="delete-btn p-2 mt-4 mr-4 border border-slate-300 rounded-full hover:bg-green-500 duration-500 cursor-pointer hover:text-gray-50">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Card 2............................. -->
+            <div
+                class="job-card flex justify-between border border-gray-300 rounded-sm shadow-lg bg-[#FFFFFF] md:gap-9 border-l-cyan-300 border-l-3">
+                <div class="p-5">
+                    <h2 class="Mobile-First-Corp text-[#002C5C] text-[20px] font-semibold">WebFlow Agency</h2>
+                    <p class="React-Native-Developer text-[#64748B]">Web Designer & Developer</p>
+                    <p class="salary-button py-4 text-[#64748B]">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                    <button class="Not-Applied btn btn-active">Not Applied</button>
+                    <p class="parent-lorem py-3">
+                        Create stunning web experiences for high-profile clients.
+                    </p>
+                    <div class="flex gap-5">
+                        <button class="interview-btn btn btn-outline btn-success">interview</button>
+                        <button class="rejected-btn btn btn-outline btn-error">Rejected</button>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        class="delete-btn p-2 mt-4 mr-4 border border-slate-300 rounded-full hover:bg-green-500 duration-500 cursor-pointer hover:text-gray-50">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Card 3 .................................-->
+            <div
+                class="job-card flex justify-between border border-gray-300 border-l-teal-400 border-l-3 rounded-sm shadow-lg bg-[#FFFFFF] md:gap-9">
+                <div class="p-5">
+                    <h2 class="Mobile-First-Corp text-[#002C5C] text-[20px] font-semibold">DataViz Solutions</h2>
+                    <p class="React-Native-Developer text-[#64748B]">Data Visualization Specialist</p>
+                    <p class="salary-button py-4 text-[#64748B]">Boston, MA • Full-time • $125,000 - $165,000</p>
+                    <button class="Not-Applied btn btn-active">Not Applied</button>
+                    <p class="parent-lorem py-3">
+                        Transform complex data into compelling visualizations.
+                    </p>
+                    <div class="flex gap-5">
+                        <button class="interview-btn btn btn-outline btn-success">interview</button>
+                        <button class="rejected-btn btn btn-outline btn-error">Rejected</button>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        class="delete-btn p-2 mt-4 mr-4 border border-slate-300 rounded-full hover:bg-green-500 duration-500 cursor-pointer hover:text-gray-50">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Card 4 ..............................-->
+            <div
+                class="job-card flex justify-between border border-gray-300 border-l-teal-400 border-l-3 rounded-sm shadow-lg bg-[#FFFFFF] md:gap-9">
+                <div class="p-5">
+                    <h2 class="Mobile-First-Corp text-[#002C5C] text-[20px] font-semibold">CloudFirst Inc</h2>
+                    <p class="React-Native-Developer text-[#64748B]">Backend Developer</p>
+                    <p class="salary-button py-4 text-[#64748B]">Seattle, WA • Full-time • $140,000 - $190,000</p>
+                    <button class="Not-Applied btn btn-active">Not Applied</button>
+                    <p class="parent-lorem py-3">
+                        Design scalable backend systems using Python and AWS.
+                    </p>
+                    <div class="flex gap-5">
+                        <button class="interview-btn btn btn-outline btn-success">interview</button>
+                        <button class="rejected-btn btn btn-outline btn-error">Rejected</button>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        class="delete-btn p-2 mt-4 mr-4 border border-slate-300 rounded-full hover:bg-green-500 duration-500 cursor-pointer hover:text-gray-50">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Card 5 ...............................-->
+            <div
+                class="job-card flex justify-between border border-l-cyan-300 border-l-3 border-gray-300 rounded-sm shadow-lg bg-[#FFFFFF] md:gap-9">
+                <div class="p-5">
+                    <h2 class="Mobile-First-Corp text-[#002C5C] text-[20px] font-semibold">Innovation Labs</h2>
+                    <p class="React-Native-Developer text-[#64748B]">UI/UX Engineer</p>
+                    <p class="salary-button py-4 text-[#64748B]">Austin, TX • Full-time • $110,000 - $150,000</p>
+                    <button class="Not-Applied btn btn-active">Not Applied</button>
+                    <p class="parent-lorem py-3">
+                        Create beautiful and functional user interfaces.
+                    </p>
+                    <div class="flex gap-5">
+                        <button class="interview-btn btn btn-outline btn-success">interview</button>
+                        <button class="rejected-btn btn btn-outline btn-error">Rejected</button>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        class="delete-btn p-2 mt-4 mr-4 border border-slate-300 rounded-full hover:bg-green-500 duration-500 cursor-pointer hover:text-gray-50">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Card 6 .........................-->
+            <div
+                class="job-card flex justify-between border border-l-cyan-300 border-l-3 border-gray-300 rounded-sm shadow-lg bg-[#FFFFFF] md:gap-9">
+                <div class="p-5">
+                    <h2 class="Mobile-First-Corp text-[#002C5C] text-[20px] font-semibold">MegaCorp Solutions</h2>
+                    <p class="React-Native-Developer text-[#64748B]">JavaScript Developer</p>
+                    <p class="salary-button py-4 text-[#64748B]">New York, NY • Full-time • $130,000 - $170,000</p>
+                    <button class="Not-Applied btn btn-active">Not Applied</button>
+                    <p class="parent-lorem py-3">
+                        Build enterprise applications with modern frameworks.
+                    </p>
+                    <div class="flex gap-5">
+                        <button class="interview-btn btn btn-outline btn-success">interview</button>
+                        <button class="rejected-btn btn btn-outline btn-error">Rejected</button>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        class="delete-btn p-2 mt-4 mr-4 border border-slate-300 rounded-full hover:bg-green-500 duration-500 cursor-pointer hover:text-gray-50">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Card 7 ....................-->
+            <div
+                class="job-card flex justify-between border border-l-cyan-300 border-l-3 border-gray-300 rounded-sm shadow-lg bg-[#FFFFFF] md:gap-9">
+                <div class="p-5">
+                    <h2 class="Mobile-First-Corp text-[#002C5C] text-[20px] font-semibold">StartupXYZ</h2>
+                    <p class="React-Native-Developer text-[#64748B]">Full Stack Engineer</p>
+                    <p class="salary-button py-4 text-[#64748B]">Remote • Full-time • $120,000 - $160,000</p>
+                    <button class="Not-Applied btn btn-active">Not Applied</button>
+                    <p class="parent-lorem py-3">
+                        Work on fast-growing startup platform.
+                    </p>
+                    <div class="flex gap-5">
+                        <button class="interview-btn btn btn-outline btn-success">interview</button>
+                        <button class="rejected-btn btn btn-outline btn-error">Rejected</button>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        class="delete-btn p-2 mt-4 mr-4 border border-slate-300 rounded-full hover:bg-green-500 duration-500 cursor-pointer hover:text-gray-50">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Card 8//................ -->
+            <div
+                class="job-card flex justify-between border border-l-teal-400 border-l-3 border-gray-300 rounded-sm shadow-lg bg-[#FFFFFF] md:gap-9">
+                <div class="p-5">
+                    <h2 class="Mobile-First-Corp text-[#002C5C] text-[20px] font-semibold">TechCorp Industries</h2>
+                    <p class="React-Native-Developer text-[#64748B]">Senior Frontend Developer</p>
+                    <p class="salary-button py-4 text-[#64748B]">San Francisco, CA • Full-time • $130,000 - $175,000</p>
+                    <button class="Not-Applied btn btn-active">Not Applied</button>
+                    <p class="parent-lorem py-3">
+                        Build scalable web apps using React and TypeScript.
+                    </p>
+                    <div class="flex gap-5">
+                        <button class="interview-btn btn btn-outline btn-success">interview</button>
+                        <button class="rejected-btn btn btn-outline btn-error">Rejected</button>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        class="delete-btn p-2 mt-4 mr-4 border  border-slate-300 rounded-full hover:bg-green-500 duration-500 cursor-pointer hover:text-gray-50">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- No ai card ta hidden thakbe all card A -->
+        <section id="jobs-available" class=" mb-4 bg-[##FFFFFF] shadow-md hidden">
+            <div class="flex justify-center items-center border border-gray-300 py-[70px] rounded-md ">
+                <div class=" text-center">
+                    <img src="./B13-A4-PH-Job-Tracker/jobs.png" alt="" class="mx-auto block">
+                    <h3 class="text-[#002C5C] font-semibold text-[24px]">No jobs available</h3>
+                    <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- filter section ba faka section -->......
+        <section id="filtered-section" class="hidden">
+
+        </section>
+
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
