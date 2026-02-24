@@ -22,7 +22,7 @@ const jobsCount = document.getElementById("Available-Jobs");
 
 //button color change..........................
 function toggleStyle(id){
-
+////////////button color jonno 
     allfilterbtn.classList.remove('bg-[#3B82F6]','text-white');
     interviebtn.classList.remove('bg-[#3B82F6]','text-white');
     rejectedbtn.classList.remove('bg-[#3B82F6]','text-white');
@@ -36,7 +36,7 @@ function toggleStyle(id){
 
     selected.classList.remove('bg-[#FFFFFF]','text-black');
     selected.classList.add('bg-[#3B82F6]','text-white');
-
+     //add button  hidden kaj kore
     if(id === 'all-filter-btn'){
         allcardParent.classList.remove('hidden');
         filterSectoin.classList.add('hidden');
@@ -60,7 +60,7 @@ function toggleStyle(id){
 
 
 
-///
+///  8 of jobs.. ar count kaj korbe......
 function calculateCount(){
 
     const totalJobs = allcardParent.children.length;
@@ -82,10 +82,10 @@ function calculateCount(){
 
 calculateCount();
 
-
+//................
 mainContainer.addEventListener('click',function(event){
 
-    // interview click
+    // interview click  button ...add or cound kaj.........
     if(event.target.classList.contains('interview-btn')){
 
         const parentNode = event.target.closest('.job-card');
@@ -108,7 +108,7 @@ mainContainer.addEventListener('click',function(event){
         if(currentStatusCount==='Rejected-filter-btn') renderrejected();
     }
 
-    // rejected click
+    // rejected click button add ..or coutn kaj ..///
     else if(event.target.classList.contains('rejected-btn')){
 
         const parentNode = event.target.closest('.job-card');
@@ -130,8 +130,8 @@ mainContainer.addEventListener('click',function(event){
         if(currentStatusCount==='Interview-filter-btn') renderInterview();
         if(currentStatusCount==='Rejected-filter-btn') renderrejected();
     }
-
-    // delete click
+//....................................////
+    // delete click   Interview....Rejected....all card  , delete ..////
     else if(event.target.closest('.delete-btn')){
 
         const card = event.target.closest('.job-card');
@@ -143,8 +143,8 @@ mainContainer.addEventListener('click',function(event){
 
             card.remove();
 
-            IntervieCount = IntervieCount.filter(i=>i.mobileShop!==shopName);
-            RejectedCount = RejectedCount.filter(i=>i.mobileShop!==shopName);
+            IntervieCount = IntervieCount.filter(i =>i.mobileShop !==shopName);
+            RejectedCount = RejectedCount.filter(i =>i.mobileShop !==shopName);
 
             calculateCount();
 
@@ -153,7 +153,7 @@ mainContainer.addEventListener('click',function(event){
         }
     }
 });
-
+//new div faka string... ai card push kore.....
 function renderInterview(){
 
     filterSectoin.innerHTML='';
@@ -192,7 +192,9 @@ function renderInterview(){
         filterSectoin.appendChild(div);
     }
 }
+//.........................//
 
+///new div ..... push kore.....valo kore korte hobe.........
 function renderrejected(){
 
     filterSectoin.innerHTML='';
@@ -207,7 +209,7 @@ function renderrejected(){
 
         let div=document.createElement('div');
         div.className='mb-5 job-card flex justify-between border border-gray-300 rounded-sm shadow-lg bg-[#FFFFFF] md:gap-9 relative';
-
+                     
         div.innerHTML=`
         <p class="delete-btn absolute right-4 top-4 p-2 border border-slate-300 rounded-full hover:bg-red-500 duration-500 cursor-pointer hover:text-gray-50">
             <i class="fa-regular fa-trash-can"></i>
@@ -231,3 +233,6 @@ function renderrejected(){
         filterSectoin.appendChild(div);
     }
 }
+//......................................////
+
+/// ata aber korte hobe,,,,,,,,,,//////programming hero
